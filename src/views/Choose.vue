@@ -1,7 +1,17 @@
 <template>
     <div>
         <el-input v-model="item.names" readonly @click.native="inputClickHandler" />
-        <choose-people-or-org v-model="item.codes" :isShowGlobal="true" :names.sync="item.names" :visible.sync="opickerToToVisible" @selected="selectedHandler" />
+        <choose-people-or-org
+            v-if="opickerToToVisible"
+            rootOrgCode="shhr"
+            :isShowGlobal="true"
+            :defaultUsers="item.users"
+            :defaultOrgs="item.orgs"
+            :codes.sync="item.codes"
+            :names.sync="item.names"
+            :visible.sync="opickerToToVisible"
+            @selected="selectedHandler"
+        />
     </div>
 </template>
 
@@ -17,7 +27,9 @@ export default class ChoosePeopeleOrOrg extends Vue {
     opickerToToVisible = false
     item = {
         codes: '',
-        names: ''
+        names: '',
+        users: [],
+        orgs: []
     }
 
     inputClickHandler() {
@@ -26,8 +38,9 @@ export default class ChoosePeopeleOrOrg extends Vue {
         this.opickerToToVisible = true
     }
 
-    selectedHandler() {
-        console.log(`selected:`, arguments)
+    selectedHandler({ users, orgs }) {
+        this.item.users = users
+        this.item.orgs = orgs
     }
 }
 </script>
