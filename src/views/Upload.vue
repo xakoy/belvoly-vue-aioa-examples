@@ -1,6 +1,21 @@
 <template>
-    <div>
-        <upload :action="actionUrl" :fileList="fileList" :typeCode="typeCode" :refTableName="refTableName" :isEditFile="false" />
+    <div style="text-align: left">
+        <el-form>
+            <el-form-item label="封面">
+                <upload
+                    :action="actionUrl"
+                    :limit="1"
+                    :isOnlyImage="true"
+                    :fileList="imageList"
+                    :refTableName="refTableName"
+                    :typeCode="typeCode"
+                    tip="封面仅支持20MB以下图片，格式仅支持.jpg ,jpeg .png .bmp"
+                />
+            </el-form-item>
+            <el-form-item label="附件">
+                <upload :action="actionUrl" :limit="3" :fileList="fileList" :typeCode="typeCode" :refTableName="refTableName" :isEditFile="true" />
+            </el-form-item>
+        </el-form>
     </div>
 </template>
 
@@ -90,5 +105,7 @@ export default class UploadIndex extends Vue {
             downTimes: 0
         }
     ]
+
+    imageList = []
 }
 </script>
