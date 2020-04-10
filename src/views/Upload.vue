@@ -13,9 +13,12 @@
                 />
             </el-form-item>
             <el-form-item label="附件">
-                <upload :action="actionUrl" :limit="3" :fileList="fileList" :typeCode="typeCode" :refTableName="refTableName" :isEditFile="true" />
+                <upload ref="upload" :action="actionUrl" :limit="3" :fileList="fileList" :typeCode="typeCode" :refTableName="refTableName" :isEditFile="true" @change="changeHandler" />
             </el-form-item>
         </el-form>
+        <el-button @click="saveHandler" :loading="loading">
+            保存
+        </el-button>
     </div>
 </template>
 
@@ -107,5 +110,19 @@ export default class UploadIndex extends Vue {
     ]
 
     imageList = []
+
+    changeHandler(files) {
+        console.log('change', files)
+    }
+
+    loading = false
+
+    async saveHandler() {
+        const id = 'XXX-XXX-XX'
+        const upload: any = this.$refs.upload
+        this.loading = true
+        await upload.updateRelevance(id)
+        this.loading = false
+    }
 }
 </script>
