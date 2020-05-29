@@ -1,9 +1,11 @@
 <template>
     <div>
-        <el-input v-model="item.names" readonly @click.native="inputClickHandler" />
+        <bvan-field label="收件人" is-link v-model="item.names" readonly @click="inputClickHandler" />
         <choose-people-or-org
             v-if="opickerToToVisible"
             rootOrgCode="shhr"
+            selectionMode="single"
+            mode="user"
             :isShowGlobal="true"
             :defaultUsers="item.users"
             :defaultOrgs="item.orgs"
@@ -17,7 +19,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import { ChoosePeopleOrOrg } from '@belvoly-vue-aioa/ui'
+import { ChoosePeopleOrOrg } from '@belvoly-vue-aioa/m-ui'
 @Component({
     components: {
         ChoosePeopleOrOrg
@@ -26,15 +28,18 @@ import { ChoosePeopleOrOrg } from '@belvoly-vue-aioa/ui'
 export default class ChoosePeopeleOrOrg extends Vue {
     opickerToToVisible = false
     item = {
-        codes: '',
-        names: '',
-        users: [],
+        codes: 'luolong',
+        names: '罗龙',
+        users: [
+            {
+                name: '罗龙',
+                value: 'luolong'
+            }
+        ],
         orgs: []
     }
 
     inputClickHandler() {
-        console.log('click')
-
         this.opickerToToVisible = true
     }
 
