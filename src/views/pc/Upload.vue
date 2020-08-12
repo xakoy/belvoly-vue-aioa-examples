@@ -16,6 +16,15 @@
                 <upload ref="upload" :action="actionUrl" :limit="3" :fileList="fileList" :typeCode="typeCode" :refTableName="refTableName" :isEditFile="true" @change="changeHandler" />
             </el-form-item>
         </el-form>
+        <div>
+            简易模式：
+            <upload simple @success="simpleSuccessHandler" @error="simpleErrorHandler" action="http://192.168.101.135:2001/api/bua/avatar/uploadHeadPhoto?userUid=luolong">
+                <template #simple>
+                    <el-button size="mini" type="primary" native-type="button">上传</el-button>
+                </template>
+            </upload>
+            （格式.pdf）
+        </div>
         <el-button @click="saveHandler" :loading="loading">
             保存
         </el-button>
@@ -123,6 +132,15 @@ export default class UploadIndex extends Vue {
         this.loading = true
         await upload.updateRelevance(id)
         this.loading = false
+    }
+
+    async simpleSuccessHandler(info, responseData) {
+        console.log(info, responseData, 'simple success')
+        alert('上传成功')
+    }
+
+    async simpleErrorHandler(err) {
+        alert('上传失败')
     }
 }
 </script>

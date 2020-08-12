@@ -1,19 +1,37 @@
 <template>
     <div>
-        <el-input v-model="item.names" readonly @click.native="inputClickHandler" />
-        <choose-people-or-org
-            v-if="opickerToToVisible"
-            rootOrgCode="shhr"
-            selectionMode="single"
-            mode="user"
-            :isShowGlobal="true"
-            :defaultUsers="item.users"
-            :defaultOrgs="item.orgs"
-            :codes.sync="item.codes"
-            :names.sync="item.names"
-            :visible.sync="opickerToToVisible"
-            @selected="selectedHandler"
-        />
+        <el-form>
+            <el-input v-model="item.names" readonly @click.native="inputClickHandler" />
+            <choose-people-or-org
+                v-if="opickerToToVisible"
+                rootOrgCode="shhr"
+                selectionMode="single"
+                mode="user"
+                :isShowGlobal="true"
+                :defaultUsers="item.users"
+                :defaultOrgs="item.orgs"
+                :codes.sync="item.codes"
+                :names.sync="item.names"
+                :visible.sync="opickerToToVisible"
+                @selected="selectedHandler"
+            />
+            <el-form-item label="多选">
+                <el-input v-model="item.names" readonly @click.native="inputClickHandler" />
+                <choose-people-or-org
+                    v-if="opickerToToVisible"
+                    rootOrgCode="shhr"
+                    selectionMode="multiple"
+                    mode="user"
+                    :isShowGlobal="true"
+                    :defaultUsers="item.users"
+                    :defaultOrgs="item.orgs"
+                    :codes.sync="item.codes"
+                    :names.sync="item.names"
+                    :visible.sync="opickerToToVisible"
+                    @selected="selectedHandler"
+                />
+            </el-form-item>
+        </el-form>
     </div>
 </template>
 

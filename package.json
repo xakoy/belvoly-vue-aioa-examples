@@ -8,12 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@belvoly-vue-aioa/bvant": "^0.1.1",
-    "@belvoly-vue-aioa/core": "^0.1.6",
-    "@belvoly-vue-aioa/m-core": "^0.1.0",
-    "@belvoly-vue-aioa/m-ui": "^0.1.0",
+    "@belvoly-vue-aioa/bvant": "^0.1.10",
+    "@belvoly-vue-aioa/core": "^0.1.10",
+    "@belvoly-vue-aioa/m-core": "^0.1.10",
+    "@belvoly-vue-aioa/m-ui": "^0.1.17",
     "@belvoly-vue-aioa/tinymce": "^0.1.0",
-    "@belvoly-vue-aioa/ui": "^0.1.6",
+    "@belvoly-vue-aioa/ui": "^0.1.20",
     "@tinymce/tinymce-vue": "^3.2.0",
     "core-js": "^3.6.4",
     "tinymce": "^5.2.1",
