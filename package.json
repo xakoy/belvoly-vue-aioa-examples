@@ -16,7 +16,7 @@
     "@belvoly-vue-aioa/ui": "^0.1.20",
     "@tinymce/tinymce-vue": "^3.2.0",
     "core-js": "^3.6.4",
-    "tinymce": "^5.2.1",
+    "tinymce": "^5.6.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.2",
     "vue-property-decorator": "^8.3.0",
